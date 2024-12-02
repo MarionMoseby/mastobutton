@@ -2,6 +2,9 @@ Array.prototype.forEach||(Array.prototype.forEach=function(r){var o,t;if(null==t
 document.addEventListener("DOMContentLoaded", function() {
 	var mast_shares = document.querySelectorAll('.mast-share')
 	mast_shares.forEach(function(q,i) {
+		if (window.localStorage)
+			q.querySelector('[name="mast-instance-input"]').value =
+				window.localStorage.getItem('mastodon_instance');
 		q.querySelector('.mast-check-toggle').id = 'mast-check-toggle-'+i
 		q.querySelector('.mast-check-label').htmlFor = 'mast-check-toggle-'+i
 		q.querySelector('.mast-share-button').addEventListener('click', function(e) {
@@ -14,6 +17,8 @@ document.addEventListener("DOMContentLoaded", function() {
 			var title = document.querySelector('meta[property~="og:title"][content],meta[property~="dc:title"][content],meta[name="title"][content]');
 			title = title ? title.content : document.title;
 			if(webreg.test(instance.value)) {
+				if (window.localStorage)
+					window.localStorage.setItem('mastodon_instance', instance.value);
 				var url = `https:\/\/${instance.value.replace(/(^\w+:|^)\/\//, '')}/share?text=${encodeURIComponent(title)} ${encodeURIComponent(doc_url)}`;
 				window.open(url, "new", options);
 			} else {
