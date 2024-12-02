@@ -26,6 +26,8 @@ module:
   mounts:
   - source: layouts/shortcodes/
     target: layouts/shortcodes/
+  - source: static/files
+    target: static/files
 ```
 
 then, run:
