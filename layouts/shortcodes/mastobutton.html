@@ -1,0 +1,52 @@
+{{ $size := .Get "size" | default "big" }}
+
+{{ if eq $size "big" }}
+    <div id="mastobutton">
+        <div class="mast-share mast-share-lg">
+            <input type="checkbox" class="mast-check-toggle">
+            <div class="mast-instance">
+                <span>Instance: </span>
+                <input type="textbox" name="mast-instance-input" placeholder="mastodon.social">
+                <button class="mast-share-button">Share</button>
+            </div>
+            <label class="mast-top mast-check-label">
+                <span>Share on</span>
+                <img src="https://raw.githubusercontent.com/grayleonard/mastodon-share/master/logotype-full.svg">
+            </label>
+        </div>
+    </div>
+
+{{ else if eq $size "medium" }}
+    <div class="mast-share mast-share-md">
+        <input type="checkbox" class="mast-check-toggle">
+        <div class="mast-instance">
+            <span>Instance: </span>
+            <input type="textbox" name="mast-instance-input" placeholder="mastodon.social">
+            <button class="mast-share-button">Share</button>
+        </div>
+        <label class="mast-top mast-check-label">
+            <img src="https://raw.githubusercontent.com/grayleonard/mastodon-share/master/logotype-full.svg">
+        </label>
+    </div>
+
+{{ else if eq $size "small" }}
+    <div class="mast-share mast-share-sm">
+        <input type="checkbox" class="mast-check-toggle">
+        <div class="mast-instance">
+            <span>Instance: </span>
+            <input type="textbox" name="mast-instance-input" placeholder="mastodon.social">
+            <button class="mast-share-button">Share</button>
+        </div>
+        <label class="mast-top mast-check-label">
+            <img src="https://raw.githubusercontent.com/grayleonard/mastodon-share/master/logotype-full.svg">
+        </label>
+    </div>
+
+{{ else }}
+    {{ warnf "Warning: Invalid 'size' value '%s' provided." $size }}
+{{ end }}
+
+<!-- Scripts -->
+<script src="https://raw.githubusercontent.com/grayleonard/mastodon-share/master/mast-share.min.js"></script>
+<link rel="stylesheet" href="https://raw.githubusercontent.com/grayleonard/mastodon-share/master/mast-share.min.css">
+
