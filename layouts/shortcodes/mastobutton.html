@@ -1,52 +1,57 @@
 {{ $size := .Get "size" | default "big" }}
 
+<div id="mastobutton">
 {{ if eq $size "big" }}
-    <div id="mastobutton">
-        <div class="mast-share mast-share-lg">
-            <input type="checkbox" class="mast-check-toggle">
-            <div class="mast-instance">
-                <span>Instance: </span>
-                <input type="textbox" name="mast-instance-input" placeholder="mastodon.social">
-                <button class="mast-share-button">Share</button>
-            </div>
-            <label class="mast-top mast-check-label">
-                <span>Share on</span>
-                <img src="/files/logotype-full.svg">
-            </label>
-        </div>
+
+<div class="mast-share mast-share-lg">
+    <input type="checkbox" class="mast-check-toggle">
+    <div class="mast-instance">
+        <span>Instance: </span>
+        <input type="textbox" name="mast-instance-input" placeholder="mastodon.social">
+        <button class="mast-share-button">Share</button>
     </div>
+    <label class="mast-top mast-check-label">
+        <span>Share on</span>
+        <img src="/files/logotype-full.svg">
+    </label>
+</div>
 
 {{ else if eq $size "medium" }}
-    <div class="mast-share mast-share-md">
-        <input type="checkbox" class="mast-check-toggle">
-        <div class="mast-instance">
-            <span>Instance: </span>
-            <input type="textbox" name="mast-instance-input" placeholder="mastodon.social">
-            <button class="mast-share-button">Share</button>
-        </div>
-        <label class="mast-top mast-check-label">
-            <img src="/files/logotype-full.svg">
-        </label>
+
+<div class="mast-share mast-share-md">
+    <input type="checkbox" class="mast-check-toggle">
+    <div class="mast-instance">
+        <span>Instance: </span>
+        <input type="textbox" name="mast-instance-input" placeholder="mastodon.social">
+        <button class="mast-share-button">Share</button>
     </div>
+    <label class="mast-top mast-check-label">
+        <img src="/files/logotype-full.svg">
+    </label>
+</div>
 
 {{ else if eq $size "small" }}
-    <div class="mast-share mast-share-sm">
-        <input type="checkbox" class="mast-check-toggle">
-        <div class="mast-instance">
-            <span>Instance: </span>
-            <input type="textbox" name="mast-instance-input" placeholder="mastodon.social">
-            <button class="mast-share-button">Share</button>
-        </div>
-        <label class="mast-top mast-check-label">
-            <img src="/files/logotype-full.svg">
-        </label>
+
+<div class="mast-share mast-share-sm">
+    <input type="checkbox" class="mast-check-toggle">
+    <div class="mast-instance">
+        <span>Instance: </span>
+        <input type="textbox" name="mast-instance-input" placeholder="mastodon.social">
+        <button class="mast-share-button">Share</button>
     </div>
+    <label class="mast-top mast-check-label">
+        <img src="/files/logotype-short.svg">
+    </label>
+</div>
 
 {{ else }}
+
     {{ warnf "Warning: Invalid 'size' value '%s' provided." $size }}
+
 {{ end }}
+
+</div>
 
 <!-- Scripts -->
 <script src="/js/mast-share.js"></script>
 <link rel="stylesheet" href="/css/mast-share.css">
-
